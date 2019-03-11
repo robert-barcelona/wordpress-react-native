@@ -81,6 +81,7 @@ out/
 .idea/**
 
 node_modules
+	.expo/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
