@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {Query} from 'react-apollo'
 import gql from 'graphql-tag'
-import {Container, Card, CardItem, Content, Icon, Left, Right, Body, Switch, List, ListItem, Text} from 'native-base';
-import HTML from 'react-native-render-html';
-import { Dimensions } from 'react-native';
+import {Container, Content, Icon, Left, Right, Body, Switch, List, ListItem, Text} from 'native-base';
 
 
 import Post from './Post'
@@ -14,16 +12,13 @@ class Posts extends Component {
       {
           posts {
               id
-              date
               title {
-                  rendered
-              }
-              content {
                   rendered
               }
           }
       }
   `
+
 
   styles = {
     container: {
@@ -49,12 +44,7 @@ class Posts extends Component {
     console.log(id)
   }
 
-  renderPostHTML = (posts, postID) => {
-    const post = posts.find(post => post.id === postID)
-    if (!post) return <Text>'...'</Text>
-    else return <HTML html={post.content.rendered} imagesMaxWidth={Dimensions.get('window').width}/>
 
-  }
 
   render() {
 
@@ -86,13 +76,7 @@ class Posts extends Component {
 
                 </ListItem>}
             />
-            {postID && <Card>
-              <CardItem>
-                <Body>
-                  {renderPostHTML(postsToRender,postID)}
-                </Body>
-              </CardItem>
-            </Card>}
+            {postID && <Post id={postID}/>}
           </Content>
         </Container>)
       }}

@@ -43,7 +43,6 @@ export default class App extends React.Component {
     return (
       <ApolloProvider client={client}>
         <View style={styles.container}>
-          <Text>Hello</Text>
           <Posts/>
         </View>
       </ApolloProvider>
