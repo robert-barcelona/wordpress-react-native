@@ -41,7 +41,6 @@ class Posts extends Component {
 
   onPostClick = id => {
     this.setState({postID: id})
-    console.log(id)
   }
 
 
